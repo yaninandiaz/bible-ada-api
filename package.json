@@ -6,12 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "dev-bible-api": "ts-node ./src/database/bible_api.ts",
+    "dev-bible-model": "ts-node ./src/models/bible_model.ts",
+    "dev-book-api": "ts-node ./src/database/book_api.ts",
+    "dev-chapter-api": "ts-node ./src/database/chapter_api.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "sprintf-js": "^1.1.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@types/sprintf-js": "^1.1.4"
   }
 }
