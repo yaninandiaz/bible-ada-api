@@ -8,3 +8,5 @@ class ChapterModel {
         return chaptersJson.data;
     }
 }
+
+export const chapterModel = new ChapterModel()

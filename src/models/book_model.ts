@@ -13,3 +13,5 @@ class BookModel {
         return bookJson.data
     }
 }
+
+export const bookModel = new BookModel()
