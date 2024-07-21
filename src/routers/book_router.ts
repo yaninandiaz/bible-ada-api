@@ -1,8 +1,8 @@
 import { bookController } from "../controllers/book_controller";
 import { ERROR_INCORRECT_ACTION } from "../utils/message";
-import { MessageRequest } from "../utils/message_request_type";
+import { MessageRequest, MessageResponse, ResponseType } from "../utils/type";
 
-export async function routerByBook(messageRequest: MessageRequest) {
+export async function routerByBook(messageRequest: MessageRequest): Promise<MessageResponse> {
     if (messageRequest.action === "/book/all") {
         return await bookController.getAll(messageRequest.body.bibleId)
     }
@@ -11,5 +11,5 @@ export async function routerByBook(messageRequest: MessageRequest) {
         return await bookController.getById(messageRequest.body.bibleId, messageRequest.body.bookId)
     }
 
-    return ERROR_INCORRECT_ACTION
+    return { responseType: ResponseType.ERROR, message: ERROR_INCORRECT_ACTION, body: null }
 }

@@ -1,17 +1,17 @@
 import { ERROR_EMPTY_ACTION, ERROR_EMPTY_MESSAGE_REQUEST, ERROR_INCORRECT_ACTION } from "../utils/message";
-import { MessageRequest } from "../utils/message_request_type";
+import { MessageRequest, MessageResponse, ResponseType } from "../utils/type";
 import { routerByBible } from "./bible_router";
 import { routerByBook } from "./book_router";
 import { routerByChapter } from "./chapter_router";
 
-export async function router(data: string) {
+export async function router(data: string): Promise<MessageResponse> {
     if (data === "") {
-        return ERROR_EMPTY_MESSAGE_REQUEST
+        return { responseType: ResponseType.ERROR, message: ERROR_EMPTY_MESSAGE_REQUEST, body: null }
     }
 
     const message: MessageRequest = JSON.parse(data)
-    if (!message || message.action === "") {
-        return ERROR_EMPTY_ACTION
+    if (!message || !message.action || message.action === "") {
+        return { responseType: ResponseType.ERROR, message: ERROR_EMPTY_ACTION, body: null }
     }
 
     if (message.action.indexOf("/bible") === 0) {
@@ -25,6 +25,6 @@ export async function router(data: string) {
     if (message.action.indexOf("/chapter") === 0) {
         return await routerByChapter(message)
     }
-
-    return ERROR_INCORRECT_ACTION
+    
+    return { responseType: ResponseType.ERROR, message: ERROR_INCORRECT_ACTION, body: null }
 }

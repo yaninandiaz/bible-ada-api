@@ -1,4 +1,5 @@
 import { getAll, getById } from "../external_api/bible_api";
+import { ERROR_MISSING_BIBLE_ID } from "../utils/message";
 import { Bible } from "./bible";
 
 class BibleModel {
@@ -9,7 +10,11 @@ class BibleModel {
     }
 
     public async getById(bibleId: string): Promise<Bible | string> {
-        const bibleJson=await getById(bibleId)
+        if (bibleId === "") {
+            return ERROR_MISSING_BIBLE_ID
+        }
+
+        const bibleJson = await getById(bibleId)
         return bibleJson.data
     }
 }
