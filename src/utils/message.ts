@@ -9,3 +9,5 @@ export const ERROR_MISSING_PARAM: string = "[ERROR] Missing parameter"
 export const ERROR_MISSING_BIBLE_ID: string = "[ERROR] Missing bible id"
 
 export const ERROR_MISSING_BOOK_ID: string = "[ERROR] Missing book id"
+
+export const ERROR_BAD_REQUEST: string = "[ERROR] Incorrect request"

@@ -12,10 +12,10 @@ async function getAll(bibleId: string, bookId: string): Promise<any> {
         }
     });
     const data = await response.json()
-    console.log(data);
+    // console.log(data);
     return data
 }
 
 export { getAll }
 
-getAll("592420522e16049f-01", "HEB")
+// getAll("592420522e16049f-01", "HEB")

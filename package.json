@@ -5,8 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node index.ts",
+    "server": "ts-node index.ts",
     "build": "tsc",
+    "client": "ts-node ./client.ts",
     "dev-bible-api": "ts-node ./src/database/bible_api.ts",
     "dev-bible-model": "ts-node ./src/models/bible_model.ts",
     "dev-book-api": "ts-node ./src/database/book_api.ts",

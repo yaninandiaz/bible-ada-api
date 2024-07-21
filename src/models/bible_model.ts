@@ -1,5 +1,5 @@
 import { getAll, getById } from "../external_api/bible_api";
-import { ERROR_MISSING_BIBLE_ID } from "../utils/message";
+import { ERROR_BAD_REQUEST, ERROR_MISSING_BIBLE_ID } from "../utils/message";
 import { Bible } from "./bible";
 
 class BibleModel {
@@ -15,6 +15,10 @@ class BibleModel {
         }
 
         const bibleJson = await getById(bibleId)
+        if (bibleJson?.error) {
+            return ERROR_BAD_REQUEST + ". StatusCode: " + bibleJson?.statusCode + ". Error: " + bibleJson?.error + ". Message: " + bibleJson?.message
+        }
+
         return bibleJson.data
     }
 }

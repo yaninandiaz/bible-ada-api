@@ -12,9 +12,9 @@ class BookController {
         const requestLog: Log = { type, action: Action.REQUEST, params: { bibleId }, body: null }
         if (!bibleId) {
             const errorResponse: MessageResponse = { responseType: ResponseType.ERROR, message: ERROR_MISSING_PARAM, body: null }
+            const responseLog: Log = { type, action: Action.RESPONSE, params: null, body: errorResponse }
             // it is not going to wait (await) because I do not want it to be blocking
-            logModel.saveLog(requestLog)
-            logModel.saveErrorLog(type, Action.RESPONSE, errorResponse)
+            logModel.save(requestLog, responseLog)
 
             return errorResponse
         }
@@ -22,9 +22,9 @@ class BookController {
         const result: Book[] | string = await bookModel.getAll(bibleId)
         if (typeof result === "string") {
             const errorResponse: MessageResponse = { responseType: ResponseType.ERROR, message: result, body: null }
+            const responseLog: Log = { type, action: Action.RESPONSE, params: null, body: errorResponse }
             // it is not going to wait (await) because I do not want it to be blocking
-            logModel.saveLog(requestLog)
-            logModel.saveErrorLog(type, Action.RESPONSE, errorResponse)
+            logModel.save(requestLog, responseLog)
 
             return errorResponse
         }
@@ -43,9 +43,9 @@ class BookController {
         const requestLog: Log = { type, action: Action.REQUEST, params: { bibleId, bookId }, body: null }
         if (!bibleId || !bookId) {
             const errorResponse: MessageResponse = { responseType: ResponseType.ERROR, message: ERROR_MISSING_PARAM, body: null }
+            const responseLog: Log = { type, action: Action.RESPONSE, params: null, body: errorResponse }
             // it is not going to wait (await) because I do not want it to be blocking
-            logModel.saveLog(requestLog)
-            logModel.saveErrorLog(type, Action.RESPONSE, errorResponse)
+            logModel.save(requestLog, responseLog)
 
             return errorResponse
         }
@@ -53,9 +53,9 @@ class BookController {
         const result: Book | string = await bookModel.getById(bibleId, bookId)
         if (typeof result === "string") {
             const errorResponse: MessageResponse = { responseType: ResponseType.ERROR, message: result, body: null }
+            const responseLog: Log = { type, action: Action.RESPONSE, params: null, body: errorResponse }
             // it is not going to wait (await) because I do not want it to be blocking
-            logModel.saveLog(requestLog)
-            logModel.saveErrorLog(type, Action.RESPONSE, errorResponse)
+            logModel.save(requestLog, responseLog)
 
             return errorResponse
         }

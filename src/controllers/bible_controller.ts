@@ -21,12 +21,13 @@ class BibleController {
     }
 
     async getById(bibleId: string | undefined | null): Promise<MessageResponse> {
-        const requestLog: Log = { type: RequestType.BIBLE_GET_BY_ID, action: Action.REQUEST, params: { bibleId }, body: null }
+        const type: RequestType = RequestType.BIBLE_GET_BY_ID
+        const requestLog: Log = { type, action: Action.REQUEST, params: { bibleId }, body: null }
         if (!bibleId) {
             const errorResponse: MessageResponse = { responseType: ResponseType.ERROR, message: ERROR_MISSING_PARAM, body: null }
+            const responseLog: Log = { type, action: Action.RESPONSE, params: null, body: errorResponse }
             // it is not going to wait (await) because I do not want it to be blocking
-            logModel.saveLog(requestLog)
-            logModel.saveErrorLog(RequestType.BIBLE_GET_BY_ID, Action.RESPONSE, errorResponse)
+            logModel.save(requestLog, responseLog)
 
             return errorResponse
         }
@@ -34,15 +35,15 @@ class BibleController {
         const result: Bible | string = await bibleModel.getById(bibleId)
         if (typeof result === "string") {
             const errorResponse: MessageResponse = { responseType: ResponseType.ERROR, message: result, body: null }
+            const responseLog: Log = { type, action: Action.RESPONSE, params: null, body: errorResponse }
             // it is not going to wait (await) because I do not want it to be blocking
-            logModel.saveLog(requestLog)
-            logModel.saveErrorLog(RequestType.BIBLE_GET_BY_ID, Action.RESPONSE, errorResponse)
+            logModel.save(requestLog, responseLog)
 
             return errorResponse
         }
 
         const response: MessageResponse = { responseType: ResponseType.SUCCESS, message: null, body: result }
-        const responseLog: Log = { type: RequestType.BIBLE_GET_BY_ID, action: Action.RESPONSE, params: null, body: response }
+        const responseLog: Log = { type, action: Action.RESPONSE, params: null, body: response }
         // it is not going to wait (await) because I do not want it to be blocking
         logModel.save(requestLog, responseLog)
 

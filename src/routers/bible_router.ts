@@ -8,7 +8,7 @@ export async function routerByBible(messageRequest: MessageRequest): Promise<Mes
     }
 
     if (messageRequest.action === "/bible/id") {
-        return await bibleController.getById(messageRequest.body.bibleId)
+        return await bibleController.getById(messageRequest?.body?.bibleId)
     }
 
     return { responseType: ResponseType.ERROR, message: ERROR_INCORRECT_ACTION, body: null }

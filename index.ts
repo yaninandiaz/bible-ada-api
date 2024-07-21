@@ -8,7 +8,7 @@ const server = net.createServer();
 
 server.on("connection", (socket) => {
     socket.on("data", async (message) => {
-        const data: string = JSON.stringify(message)
+        const data: string = message.toString();
         const messageResponse: MessageResponse = await router(data);
         socket.write(JSON.stringify(messageResponse))
     })

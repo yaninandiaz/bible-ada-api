@@ -3,6 +3,7 @@ import { MessageRequest, MessageResponse, ResponseType } from "../utils/type";
 import { routerByBible } from "./bible_router";
 import { routerByBook } from "./book_router";
 import { routerByChapter } from "./chapter_router";
+import { routerByLog } from "./log_router";
 
 export async function router(data: string): Promise<MessageResponse> {
     if (data === "") {
@@ -24,6 +25,10 @@ export async function router(data: string): Promise<MessageResponse> {
 
     if (message.action.indexOf("/chapter") === 0) {
         return await routerByChapter(message)
+    }
+
+    if (message.action.indexOf("/log") === 0) {
+        return await routerByLog(message)
     }
     
     return { responseType: ResponseType.ERROR, message: ERROR_INCORRECT_ACTION, body: null }

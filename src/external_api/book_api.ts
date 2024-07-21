@@ -12,7 +12,7 @@ async function getAll(bibleId: string): Promise<any> {
         }
     });
     const data = await response.json()
-    console.log(data);
+    // console.log(data);
     return data
 }
 
@@ -26,7 +26,7 @@ async function getById(bibleId: string, bookId: string): Promise<any> {
         }
     });
     const data = await response.json()
-    console.log(data);
+    // console.log(data);
     return data
 }
 

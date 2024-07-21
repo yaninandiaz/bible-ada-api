@@ -1,5 +1,5 @@
 import { getAll } from "../external_api/chapter_api";
-import { ERROR_MISSING_BIBLE_ID, ERROR_MISSING_BOOK_ID } from "../utils/message";
+import { ERROR_BAD_REQUEST, ERROR_MISSING_BIBLE_ID, ERROR_MISSING_BOOK_ID } from "../utils/message";
 import { Chapter } from "./chapter"
 
 class ChapterModel {
@@ -14,6 +14,11 @@ class ChapterModel {
 
         const chaptersJson = await getAll(bibleId, bookId);
         // console.info("[resultado] " + JSON.stringify(bible))
+
+        if (chaptersJson?.error) {
+            return ERROR_BAD_REQUEST + ". StatusCode: " + chaptersJson?.statusCode + ". Error: " + chaptersJson?.error + ". Message: " + chaptersJson?.message
+        }
+
         return chaptersJson.data;
     }
 }

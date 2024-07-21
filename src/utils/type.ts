@@ -4,8 +4,8 @@ export interface MessageRequest {
 }
 
 export enum ResponseType {
-    ERROR,
-    SUCCESS,
+    ERROR = "ERROR",
+    SUCCESS = "SUCCESS",
 }
 
 export interface MessageResponse {
