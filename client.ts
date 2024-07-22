@@ -4,7 +4,7 @@ const client = net.createConnection({ port: 3000 });
 
 client.on("connect", () => {
     // Bible requests
-    // const message = { action: "/bible/all" }
+    const message = { action: "/bible/all" }
     // const message = { action: "/bible/id", body: { bibleId: "592420522e16049f-01" } }
     // const message = { action: "/bible/id", body: { bibleId: "one bible" } }
     // const message = { action: "/bible/id", body: { bibleId: "" } }
@@ -33,7 +33,7 @@ client.on("connect", () => {
     // const message = { action: "/chapter/all" }
 
     // Log requests
-    const message = { action: "/log/all" }
+    // const message = { action: "/log/all" }
 
     // Incorrect requests
     // const message = {  }

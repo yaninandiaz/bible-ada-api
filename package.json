@@ -1,10 +1,9 @@
 {
   "name": "bible-ada-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "It is an API about bibles",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "ts-node index.ts",
     "build": "tsc",
     "client": "ts-node ./client.ts",
@@ -13,7 +12,7 @@
     "dev-book-api": "ts-node ./src/database/book_api.ts",
     "dev-chapter-api": "ts-node ./src/database/chapter_api.ts"
   },
-  "author": "",
+  "author": "Yanina Diaz",
   "license": "ISC",
   "dependencies": {
     "sprintf-js": "^1.1.3",
