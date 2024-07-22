@@ -56,8 +56,6 @@ En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a
 
 - **Logs**. Por cada invocación, se guardaron los requests y responses. Con esta acción se obtienen esos datos.
 
-`NOTA:` Todos los atributos en cada body son obligatorios.
-
 ```bash
 { action: "/log/all" }
 ```
@@ -65,6 +63,8 @@ En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a
 En el archivo [client.ts](./client.ts) se puede ver el mensaje asociados a esta funcionalidad, en la línea 36 aproximadamente.
 
 A su vez, en el mismo archivo client, de la línea 39 a 41 aproximadamente, se pueden ver otros mensajes para comprobar validaciones.
+
+`NOTA:` Todos los atributos en cada body son obligatorios.
 
 ### Detalle técnico
 
