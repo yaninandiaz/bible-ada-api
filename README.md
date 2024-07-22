@@ -81,13 +81,25 @@ El proyecto corre en el puerto 3000.
 
 Para poder ejecutarlo, siga estos pasos:
 
-1. Primero ejecute el server con la siguiente instrucción:
+1. Ejecute:
+
+```bash
+npm i
+```
+
+2. Ejecute:
+
+```bash
+npm run build
+```
+
+3. Primero ejecute el server con la siguiente instrucción:
 
 ```bash
 npm run server
 ```
 
-2. Luego, cuando el server esté escuchando (en la consola tiene que ver el mensaje "Listening in port: 3000"), ejecute la siguiente instrucción para que el cliente funcione:
+4. Luego, cuando el server esté escuchando (en la consola tiene que ver el mensaje "Listening in port: 3000"), ejecute la siguiente instrucción para que el cliente funcione:
 
 ```bash
 npm run client
