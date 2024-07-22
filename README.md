@@ -78,3 +78,21 @@ El proyecto fue divido en las siguientes carpetas:
 El index.ts representa el server, mientras que el client.ts al cliente.
 
 El proyecto corre en el puerto 3000.
+
+Para poder ejecutarlo, siga estos pasos:
+
+1. Primero ejecute el server con la siguiente instrucción:
+
+```bash
+npm run server
+```
+
+2. Luego, cuando el server esté escuchando (en la consola tiene que ver el mensaje "Listening in port: 3000"), ejecute la siguiente instrucción para que el cliente funcione:
+
+```bash
+npm run client
+```
+
+El resultado de la acción que haya ejecutado, la verá en la terminal/consola donde esté ejecutando el client.
+
+Dentro del archivo [client.ts](./client.ts) puede ir descomentando y comentando cada prueba, si lo desea.
