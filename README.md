@@ -73,7 +73,7 @@ Para poder desarrollar las distintas funcionalidades, se usó ["**API.Bible**"](
 El proyecto fue divido en las siguientes carpetas:
 
 - controllers: acá se puede encontrar los controllers asociadas a las distintas funcionalidades (bible, book, chapter y log).
-- database: tiene la logica para guardar los logs, en un archivo json, y para leerlos.
+- database: tiene la lógica para guardar los logs, en un archivo json, y para leerlos.
 - external_api: tiene los requests a la api, dividido por funcionalidad (bible, book y chapter).
 - models: tiene las interfaces (bible.ts, book.ts, chapter.ts y log.ts) y clases (bible_model.ts, book_model.ts, chapter_model.ts y log_model.ts) asociadas a los modelos. Dentro de las clases, pueden encontrar la conexión con la external api o database, según corresponda.
 - routers: acá se encuentran los routers a las distintas funcionalidades. En el archivo app.ts esta la entrada a los distintos routers (bible_router.ts, book_router.ts, chapter_router.ts y log_router.ts).
