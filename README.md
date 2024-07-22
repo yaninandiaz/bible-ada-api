@@ -66,6 +66,8 @@ A su vez, en el mismo archivo client, de la línea 39 a 41 aproximadamente, se p
 
 ### Detalle técnico
 
+Para poder desarrollar las distintas funcionalidades, se usó la ["**API.Bible**"](https://scripture.api.bible/).
+
 El proyecto fue divido en las siguientes carpetas:
 
 - controllers: acá se puede encontrar los controllers asociadas a las distintas funcionalidades (bible, book, chapter y log).
