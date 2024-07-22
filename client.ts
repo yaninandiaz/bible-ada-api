@@ -40,8 +40,8 @@ client.on("connect", () => {
     // const message = { action: "" }
     // const message = { action: "/request" }
 
-    const response = JSON.stringify(message);
-    client.write(response);
+    const request = JSON.stringify(message);
+    client.write(request);
 });
 
 client.on("data", (serverMessage: string) => {
