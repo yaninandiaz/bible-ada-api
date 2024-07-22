@@ -66,7 +66,7 @@ A su vez, en el mismo archivo client, de la línea 39 a 41 aproximadamente, se p
 
 ### Detalle técnico
 
-Para poder desarrollar las distintas funcionalidades, se usó la ["**API.Bible**"](https://scripture.api.bible/).
+Para poder desarrollar las distintas funcionalidades, se usó ["**API.Bible**"](https://scripture.api.bible/) como API externa.
 
 El proyecto fue divido en las siguientes carpetas:
 
