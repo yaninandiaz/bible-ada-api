@@ -2,11 +2,9 @@
 
 ## Introducción
 
-Esta es una API sobre Biblias. Puede buscar todas las que biblias en idioma **español**.
+Esta es una API sobre Biblias. Puede buscar todas las biblias en idioma **español**.
 
-Esta aplicación se encarga de proveer información de libros a través de la resolución de diferentes funciones. 
-
-El proyecto está dividido acorde al patron MVC, desarrollado en lenguaje Typescript. También, se crearon un server y un client para poder ejecutar los distintos requests.
+El proyecto está dividido acorde al patron MVC, desarrollado en lenguaje Typescript. Además, se crearon un server y un client para poder ejecutar los distintos requests.
 
 ### Detalle funcional
 
@@ -18,7 +16,7 @@ La información que provee esta API es:
 { action: "/bible/all" }
 ```
 
-En el archivo [client.ts](./client.ts) se pueden ver el mensaje que se debe de enviar (igual al detallado anteriormente), en la línea 7 aproximadamente.
+En el archivo [client.ts](./client.ts) se puede ver el mensaje que se debe de enviar (igual al detallado anteriormente), en la línea 7 aproximadamente.
 
 - **Se puede buscar una biblia en particular por id**. Detalle del request:
 
@@ -36,9 +34,9 @@ En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a
 ```
 
 En el atributo bibleId debe de colocar un id de biblia válido (puede obtener uno enviando el mensaje /bible/all).
-En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a esta funcionalidad, tanto exitosos como para valores errones para producir un error, de la línea 16 a la 20 aproximadamente.
+En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a esta funcionalidad, tanto exitosos como para valores incorrectos para producir un error, de la línea 16 a la 20 aproximadamente.
 
-- **Se puede buscar un libro en particular por id de una biblia en particular**. Detalle del request:
+- **Se puede buscar un libro en particular por id de biblia**. Detalle del request:
 
 ```bash
 { action: "/book/id", body: { bibleId: "592420522e16049f-01", bookId: "HEB" } }
@@ -53,7 +51,7 @@ En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a
 { action: "/chapter/all", body: { bibleId: "592420522e16049f-01", bookId: "JOB" } }
 ```
 
-En el atributo bibleId debe de colocar un id de biblia y un id de book (puede obtener uno enviando el mensaje /book/all).
+Recibe como atributos un id de biblia y un id de book válidos (puede obtener uno enviando el mensaje /book/all).
 En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a esta funcionalidad, tanto exitosos como para obtener error, de la línea 28 a la 33 aproximadamente.
 
 - **Logs**. Por cada invocación, se guardaron los requests y responses. Con esta acción se obtienen esos datos.
@@ -62,7 +60,7 @@ En el archivo [client.ts](./client.ts) se pueden ver varios mensajes asociados a
 { action: "/log/all" }
 ```
 
-En el archivo [client.ts](./client.ts) se pueden ver el mensaje asociados a esta funcionalidad, en la línea 36 aproximadamente.
+En el archivo [client.ts](./client.ts) se puede ver el mensaje asociados a esta funcionalidad, en la línea 36 aproximadamente.
 
 A su vez, en el mismo archivo client, de la línea 39 a 41 aproximadamente, se pueden ver otros mensajes para comprobar validaciones.
 
@@ -71,7 +69,7 @@ A su vez, en el mismo archivo client, de la línea 39 a 41 aproximadamente, se p
 El proyecto fue divido en las siguientes carpetas:
 
 - controllers: acá se puede encontrar los controllers asociadas a las distintas funcionalidades (bible, book, chapter y log).
-- database: tiene la logica para guardar los logs en un archivo json y para leerlos.
+- database: tiene la logica para guardar los logs, en un archivo json, y para leerlos.
 - external_api: tiene los requests a la api, dividido por funcionalidad (bible, book y chapter).
 - models: tiene las interfaces (bible.ts, book.ts, chapter.ts y log.ts) y clases (bible_model.ts, book_model.ts, chapter_model.ts y log_model.ts) asociadas a los modelos. Dentro de las clases, pueden encontrar la conexión con la external api o database, según corresponda.
 - routers: acá se encuentran los routers a las distintas funcionalidades. En el archivo app.ts esta la entrada a los distintos routers (bible_router.ts, book_router.ts, chapter_router.ts y log_router.ts).
