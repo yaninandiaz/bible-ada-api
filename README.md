@@ -4,7 +4,7 @@
 
 Esta es una API sobre Biblias. Puede buscar todas las biblias en idioma **español**.
 
-El proyecto está dividido acorde al patron MVC, desarrollado en lenguaje Typescript. Además, se crearon un server y un client para poder ejecutar los distintos requests.
+El proyecto está dividido acorde al patrón MVC, desarrollado en lenguaje Typescript. Además, se crearon un server y un client para poder ejecutar los distintos requests.
 
 ### Detalle funcional
 
